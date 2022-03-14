@@ -44,7 +44,9 @@ async function handleSubmit(tournamentId) {
     await playerService.set(player)
   }
 
-  app.tournaments.find(tournament => tournament.id === tournamentId).fields.Joueurs.push(app.user.id)
+  const tournament = app.tournaments.find(tournament => tournament.id === tournamentId)
+  if (!tournament.fields.Joueurs) tournament.fields.Joueurs = []
+  tournament.fields.Joueurs.push(app.user.id)
   app.load = false
   app.modal = null
 }
@@ -74,9 +76,9 @@ init()
             <h3 class="has-text-weight-semibold">{{ getGame(tournament.fields.Jeu[0]).fields.Nom }}</h3>
             <h4>{{ getDate(tournament.fields.Date) }}</h4>
             <p class="console">{{ getGame(tournament.fields.Jeu[0]).fields.Console }} • {{ tournament.fields.Tarif }}€</p>
-            <p class="players">{{ tournament.fields.Joueurs.length }} participants</p>
+            <p class="players">{{ tournament.fields.Joueurs ? tournament.fields.Joueurs.length + ' participants' : '0 participant' }}</p>
             <button
-              v-if="tournament.fields.Joueurs.find(player => player === app.user.id)"
+              v-if="tournament.fields.Joueurs && tournament.fields.Joueurs.find(player => player === app.user.id)"
               class="button is-medium is-dark has-text-weight-semibold" disabled
             >Enregistré</button>
             <button
