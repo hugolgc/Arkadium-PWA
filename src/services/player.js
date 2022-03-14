@@ -36,14 +36,12 @@ const playerService = {
   },
   async set(player) {
     try {
-      const players = await fetch(
+      await fetch(
         apiConfig.getUrl(playerPath),
         apiConfig.getSettings('PATCH', { records: [player] })
       )
-      const { records } = await players.json()
-      return records
     } catch (error) {
-      return null
+      console.error(error)
     }
   }
 }

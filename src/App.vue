@@ -41,8 +41,7 @@ async function handleSubmit(tournamentId) {
     const player = await playerService.getById(app.user.id)
     player.fields.Tournois.push(tournamentId)
     delete player.createdTime
-    const players = await playerService.set(player)
-    console.log(player, players)
+    await playerService.set(player)
   }
 
   app.tournaments.find(tournament => tournament.id === tournamentId).fields.Joueurs.push(app.user.id)
@@ -54,7 +53,6 @@ async function init() {
   app.user = userService.get()
   app.games = await gameService.getAll()
   app.tournaments = await tournamentService.getAll()
-  console.log(app.user)
 }
 
 init()
