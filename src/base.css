@@ -9,7 +9,7 @@
 
 .tournaments_app ul {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 64px;
   padding: 0 32px;
 }
@@ -17,9 +17,11 @@
 .tournaments_app li {
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 
 .tournaments_app figure {
+  flex: none;
   margin: 0 32px 0 0;
 }
 
@@ -89,8 +91,12 @@
   animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
 }
 
+.data {
+  min-width: 220px;
+}
+
 .placeholder .data {
-  width: 100%;
+  flex: auto;
 }
 
 .placeholder .picture {
@@ -119,5 +125,43 @@
   }
   to   {
       left: 100%;
+  }
+}
+
+@media(max-width: 500px) {
+  .tournaments_app img, .placeholder .picture {
+    height: 120px;
+    width: 120px;
+  }
+
+  .tournaments_app .data h3, .tournaments_app h5 {
+    font-size: 16px;
+  }
+
+  .tournaments_app .data h4 {
+    font-size: 14px;
+  }
+
+  .tournaments_app .data p {
+    font-size: 12px;
+  }
+
+  .button.is-medium {
+    font-size: 14px !important;
+  }
+
+  .placeholder .title,
+  .placeholder .content,
+  .placeholder .action {
+    height: 24px;
+  }
+
+  .tournaments_app ul {
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+    padding: 0;
+  }
+
+  .data {
+    min-width: 180px;
   }
 }
