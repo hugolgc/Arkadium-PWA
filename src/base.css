@@ -1,0 +1,123 @@
+.tournaments_app {
+  padding: 75px 0;
+  background-color: #231f20;
+}
+
+.tournaments_app h2 {
+  padding: 0 0 64px;
+}
+
+.tournaments_app ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  padding: 0 32px;
+}
+
+.tournaments_app li {
+  display: flex;
+  align-items: center;
+}
+
+.tournaments_app figure {
+  margin: 0 32px 0 0;
+}
+
+.tournaments_app img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.tournaments_app img,
+.tournaments_app .modal-card-body {
+  border-radius: 16px;
+}
+
+.tournaments_app .modal-card-body * {
+  margin: 0 0 16px;
+}
+
+.tournaments_app .modal-card-body button {
+  margin: 0;
+}
+
+.tournaments_app input,
+.tournaments_app button {
+  border-radius: 8px;
+}
+
+.tournaments_app .data h3,
+.tournaments_app h5 {
+  font-size: 24px;
+}
+
+.tournaments_app .data h4 {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, .75);
+}
+
+.tournaments_app .data p {
+  margin: 20px 0 12px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, .75);
+}
+
+.tournaments_app .data p.console {
+  margin: 16px 0 0;
+}
+
+.tournaments_app .data p.players {
+  margin: 0 0 8px;
+}
+
+.placeholder *[itemscope] {
+  position: relative;
+  background-color: rgba(255, 255, 255, .25);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.placeholder *[itemscope]::before {
+  content: '';
+  width: 100px;
+  display: block;
+  position: absolute;
+  top: 0; bottom: 0; left: -200px;
+  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .25) 50%, transparent 100%);
+  animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+.placeholder .data {
+  width: 100%;
+}
+
+.placeholder .picture {
+  height: 200px;
+  width: 200px;
+  border-radius: 16px;
+}
+
+.placeholder .title {
+  height: 36px;
+}
+
+.placeholder .content {
+  height: 26px;
+  width: 75%;
+}
+
+.placeholder .action {
+  height: 48px;
+  width: 110px;
+}
+
+@keyframes load {
+  from {
+      left: -150px;
+  }
+  to   {
+      left: 100%;
+  }
+}
